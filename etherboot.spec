@@ -2,7 +2,7 @@
 
 Summary:	Software package for booting x86 PCs over a network
 Name:		etherboot
-Version: 	5.4.2
+Version: 	5.4.3
 Release: 	%mkrel 1
 License:	GPL
 Group:		Development/Kernel
@@ -36,7 +36,7 @@ See %{_docdir}/%{name}-%{version}/README.MDK for examples of usage.
 
 %prep
 %setup -q -a1
-%patch0 -p1 -b .gcc4
+#%patch0 -p1 -b .gcc4
 
 %build
 # we don't use custom optimizations here because it can cause problems
