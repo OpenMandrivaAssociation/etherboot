@@ -3,14 +3,14 @@
 Summary:	Software package for booting x86 PCs over a network
 Name:		etherboot
 Version: 	5.4.3
-Release: 	%mkrel 1
+Release: 	%mkrel 2
 License:	GPL
 Group:		Development/Kernel
 Source0:	http://prdownloads.sourceforge.net/etherboot/%{name}-%{version}.tar.bz2
 Source1:	http://prdownloads.sourceforge.net/etherboot/%{name}-doc-%{docver}.tar.bz2
 Patch0:		etherboot-5.4.0-gcc4.patch
 URL:		http://etherboot.sourceforge.net/
-ExclusiveArch:	%{ix86}
+ExclusiveArch:	%{ix86} ia64 x86_64
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 BuildRequires:	dos2unix
 
@@ -41,7 +41,14 @@ See %{_docdir}/%{name}-%{version}/README.MDK for examples of usage.
 %build
 # we don't use custom optimizations here because it can cause problems
 # parallel make dies on cluster
-make allzdsks allzpxes allzlilos -C src
+make allzdsks allzpxes allzlilos -C src \
+%ifarch x86_64
+ARCH="i386" EXTRA_CFLAGS="-m32" EXTRA_ASFLAGS="--32" EXTRA_LDFLAGS="-m elf_i386"
+# (x86_64 flags from main Makefile)
+# x86_64 systems can run 32-bit code so there is no sense in porting etherboot
+# to x86_64 native, also this way the boot images have the ability to work on
+# both 32-bit and 64-bit systems
+%endif
 
 # clean up cvs files, remove .exe files
 find . -name '.cvs*' | xargs rm -f
