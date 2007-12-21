@@ -11,6 +11,7 @@ Source1:	http://prdownloads.sourceforge.net/etherboot/%{name}-doc-%{docver}.tar.
 Patch0:		etherboot-5.4.0-gcc4.patch
 URL:		http://etherboot.sourceforge.net/
 ExclusiveArch:	%{ix86} ia64 x86_64
+BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 BuildRequires:	dos2unix
 
 %description
