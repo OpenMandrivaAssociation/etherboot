@@ -2,13 +2,13 @@
 
 Summary:	Software package for booting x86 PCs over a network
 Name:		etherboot
-Version: 	5.4.3
+Version: 	5.4.4
 Release: 	%mkrel 4
 License:	GPL
 Group:		Development/Kernel
 Source0:	http://prdownloads.sourceforge.net/etherboot/%{name}-%{version}.tar.bz2
 Source1:	http://prdownloads.sourceforge.net/etherboot/%{name}-doc-%{docver}.tar.bz2
-Patch0:		etherboot-5.4.0-gcc4.patch
+Patch0:		etherboot-5.4.4-no-inline.patch
 URL:		http://etherboot.sourceforge.net/
 ExclusiveArch:	%{ix86} ia64 x86_64
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
@@ -36,7 +36,7 @@ See %{_docdir}/%{name}-%{version}/README.MDK for examples of usage.
 
 %prep
 %setup -q -a1
-#%patch0 -p1 -b .gcc4
+%patch0 -p0 -b .no_inline
 
 %build
 # we don't use custom optimizations here because it can cause problems
