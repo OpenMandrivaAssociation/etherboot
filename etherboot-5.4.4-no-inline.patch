@@ -1,0 +1,15 @@
+--- src/arch/i386/drivers/net/undi.c.old	2008-07-27 13:53:17.000000000 +0200
++++ src/arch/i386/drivers/net/undi.c	2008-07-27 14:01:06.000000000 +0200
+@@ -388,8 +388,12 @@
+ /* Make a real-mode UNDI API call to the UNDI routine at
+  * routine_seg:routine_off, passing in three uint16 parameters on the
+  * real-mode stack.
++ * 
++ * We tell gcc not to inline this function, because we get multiple
++ * definitions of rm_undi_call if gcc decides to inline it.
+  */
+ 
++__attribute__ ((noinline)) 
+ static PXENV_EXIT_t _undi_call ( uint16_t routine_seg,
+ 			  uint16_t routine_off, uint16_t st0,
+ 			  uint16_t st1, uint16_t st2 ) {
