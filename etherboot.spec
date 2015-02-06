@@ -6,7 +6,7 @@
 Summary:	Software package for booting x86 PCs over a network
 Name:		etherboot
 Version:	5.4.4
-Release:	6
+Release:	7
 License:	GPLv2+
 Group:		Development/Kernel
 Url:		http://etherboot.sourceforge.net/
