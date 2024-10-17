@@ -9,7 +9,7 @@ Version:	5.4.4
 Release:	7
 License:	GPLv2+
 Group:		Development/Kernel
-Url:		http://etherboot.sourceforge.net/
+Url:		https://etherboot.sourceforge.net/
 Source0:	http://prdownloads.sourceforge.net/etherboot/%{name}-%{version}.tar.bz2
 Source1:	http://prdownloads.sourceforge.net/etherboot/%{name}-doc-%{docver}.tar.bz2
 Patch0:		etherboot-5.4.4-no-inline.patch
