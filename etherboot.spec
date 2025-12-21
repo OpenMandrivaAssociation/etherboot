@@ -13,6 +13,7 @@ Url:		https://etherboot.sourceforge.net/
 Source0:	http://prdownloads.sourceforge.net/etherboot/%{name}-%{version}.tar.bz2
 Source1:	http://prdownloads.sourceforge.net/etherboot/%{name}-doc-%{docver}.tar.bz2
 Patch0:		etherboot-5.4.4-no-inline.patch
+BuildRequires:	make
 BuildRequires:	dos2unix
 ExclusiveArch:	%{ix86} x86_64
 
